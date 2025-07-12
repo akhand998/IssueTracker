@@ -71,8 +71,7 @@ export async function createIssue(data: IssueData): Promise<ActionResponse> {
     revalidateTag('issues')
 
     return { success: true, message: 'Issue created successfully' }
-  } catch (error) {
-    console.error('Error creating issue:', error)
+  } catch {
     return {
       success: false,
       message: 'An error occurred while creating the issue',
@@ -126,8 +125,7 @@ export async function updateIssue(
     await db.update(issues).set(updateData).where(eq(issues.id, id))
 
     return { success: true, message: 'Issue updated successfully' }
-  } catch (error) {
-    console.error('Error updating issue:', error)
+  } catch {
     return {
       success: false,
       message: 'An error occurred while updating the issue',
@@ -149,8 +147,7 @@ export async function deleteIssue(id: number) {
     await db.delete(issues).where(eq(issues.id, id))
 
     return { success: true, message: 'Issue deleted successfully' }
-  } catch (error) {
-    console.error('Error deleting issue:', error)
+  } catch{
     return {
       success: false,
       message: 'An error occurred while deleting the issue',

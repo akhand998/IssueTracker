@@ -46,8 +46,8 @@ export async function createUser(email: string, password: string) {
     })
 
     return { id, email }
-  } catch (error) {
-    console.error('Error creating user:', error)
+  } catch{
+    // console.error('Error creating user:', error)
     return null
   }
 }
@@ -66,8 +66,8 @@ export async function verifyJWT(token: string): Promise<JWTPayload | null> {
   try {
     const { payload } = await jose.jwtVerify(token, JWT_SECRET)
     return payload as JWTPayload
-  } catch (error) {
-    console.error('JWT verification failed:', error)
+  } catch{
+    // console.error('JWT verification failed:', error)
     return null
   }
 }
@@ -110,8 +110,8 @@ export async function createSession(userId: string) {
     })
 
     return true
-  } catch (error) {
-    console.error('Error creating session:', error)
+  } catch {
+    // console.error('Error creating session:', error)
     return false
   }
 }
@@ -132,13 +132,13 @@ export const getSession = cache(async () => {
       error instanceof Error &&
       error.message.includes('During prerendering, `cookies()` rejects')
     ) {
-      console.log(
-        'Cookies not available during prerendering, returning null session'
-      )
+      // console.log(
+      //   'Cookies not available during prerendering, returning null session'
+      // )
       return null
     }
 
-    console.error('Error getting session:', error)
+    // console.error('Error getting session:', error)
     return null
   }
 })

@@ -5,10 +5,11 @@ import { eq } from 'drizzle-orm'
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: any } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const id = params.id
+    const { id: paramId } = await params
+    const id = Number(paramId)
 
     const issue = await db.query.issues.findFirst({
       where: eq(issues.id, id),
@@ -19,8 +20,7 @@ export async function GET(
     }
 
     return NextResponse.json(issue)
-  } catch (error) {
-    console.error('Error fetching issue:', error)
+  } catch{
     return NextResponse.json(
       { error: 'Failed to fetch issue' },
       { status: 500 }

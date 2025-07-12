@@ -62,7 +62,7 @@ export async function signIn(formData: FormData): Promise<ActionResponse> {
 
     // Find user by email
     const user = await getUserByEmail(data.email)
-    if (!user) {
+    if (!user || user instanceof Error) {
       return {
         success: false,
         message: 'Invalid email or password',
@@ -91,8 +91,7 @@ export async function signIn(formData: FormData): Promise<ActionResponse> {
       success: true,
       message: 'Signed in successfully',
     }
-  } catch (error) {
-    console.error('Sign in error:', error)
+  } catch {
     return {
       success: false,
       message: 'An error occurred while signing in',
@@ -152,8 +151,7 @@ export async function signUp(formData: FormData): Promise<ActionResponse> {
       success: true,
       message: 'Account created successfully',
     }
-  } catch (error) {
-    console.error('Sign up error:', error)
+  } catch {
     return {
       success: false,
       message: 'An error occurred while creating your account',
@@ -166,8 +164,7 @@ export async function signOut(): Promise<void> {
   try {
     await mockDelay(300)
     await deleteSession()
-  } catch (error) {
-    console.error('Sign out error:', error)
+  } catch {
     throw new Error('Failed to sign out')
   } finally {
     redirect('/signin')

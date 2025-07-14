@@ -151,11 +151,11 @@ export async function signUp(formData: FormData): Promise<ActionResponse> {
       success: true,
       message: 'Account created successfully',
     }
-  } catch {
+  } catch (error) {
     return {
       success: false,
       message: 'An error occurred while creating your account',
-      error: 'Failed to create account',
+      error: error instanceof Error ? error.message : 'Failed to create account',
     }
   }
 }

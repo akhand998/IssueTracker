@@ -48,7 +48,7 @@ export default function IssueCard({ issue }: IssueCardProps) {
         </CardHeader>
         <CardContent className="pb-2">
           {description && (
-            <p className="text-gray-600 dark:text-gray-300 text-sm line-clamp-2 mb-3">
+            <p className="text-gray-600 text-sm line-clamp-2 mb-3">
               {description}
             </p>
           )}

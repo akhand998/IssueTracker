@@ -56,7 +56,7 @@ export default async function IssuePage({
       <div className="mb-8">
         <Link
           href="/dashboard"
-          className="inline-flex items-center text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 mb-4"
+          className="inline-flex items-center text-sm text-gray-600 hover:text-gray-900 mb-4"
         >
           <ArrowLeftIcon size={16} className="mr-1" />
           Back to Issues
@@ -77,7 +77,7 @@ export default async function IssuePage({
         </div>
       </div>
 
-      <div className="bg-white dark:bg-dark-elevated border border-gray-200 dark:border-dark-border-default rounded-lg shadow-sm p-6 mb-8">
+      <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 mb-8">
         <div className="flex flex-wrap gap-3 mb-6">
           <Badge status={status as Status}>{getStatusLabel(status)}</Badge>
           <Badge priority={priority as Priority}>
@@ -94,7 +94,7 @@ export default async function IssuePage({
         </div>
 
         {description ? (
-          <div className="prose dark:prose-invert max-w-none">
+          <div className="prose max-w-none">
             <p className="whitespace-pre-line">{description}</p>
           </div>
         ) : (
@@ -102,7 +102,7 @@ export default async function IssuePage({
         )}
       </div>
 
-      <div className="bg-white dark:bg-dark-elevated border border-gray-200 dark:border-dark-border-default rounded-lg shadow-sm p-6">
+      <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6">
         <h2 className="text-lg font-medium mb-2">Details</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>

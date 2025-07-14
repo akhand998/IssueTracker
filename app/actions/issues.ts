@@ -147,7 +147,7 @@ export async function deleteIssue(id: number) {
     await db.delete(issues).where(eq(issues.id, id))
 
     return { success: true, message: 'Issue deleted successfully' }
-  } catch{
+  } catch {
     return {
       success: false,
       message: 'An error occurred while deleting the issue',

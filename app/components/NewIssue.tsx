@@ -5,7 +5,7 @@ import { getCurrentUser } from '@/lib/dal'
 const NewIssue = async () => {
   const user = await getCurrentUser()
 
-  if (!user || user instanceof Error) {
+  if (!user) {
     redirect('/signin')
   }
 

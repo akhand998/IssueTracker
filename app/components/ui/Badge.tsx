@@ -60,15 +60,15 @@ export default function Badge({
 
   const variantStyles = {
     default:
-      'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300',
-    secondary: 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300',
+      'bg-purple-100 text-purple-800',
+    secondary: 'bg-gray-100 text-gray-800',
     outline:
-      'border border-gray-200 text-gray-800 dark:border-dark-border-medium dark:text-gray-300',
+      'border border-gray-200 text-gray-800',
     success:
-      'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300',
+      'bg-green-100 text-green-800',
     warning:
-      'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300',
-    danger: 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300',
+      'bg-yellow-100 text-yellow-800',
+    danger: 'bg-red-100 text-red-800',
   }
 
   const badgeVariant = getBadgeVariant()

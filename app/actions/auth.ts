@@ -62,7 +62,7 @@ export async function signIn(formData: FormData): Promise<ActionResponse> {
 
     // Find user by email
     const user = await getUserByEmail(data.email)
-    if (!user || user instanceof Error) {
+    if (!user) {
       return {
         success: false,
         message: 'Invalid email or password',

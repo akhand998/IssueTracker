@@ -13,7 +13,7 @@ export default function Error({
 }) {
   useEffect(() => {
     // Log the error to an error reporting service
-    // console.error(error)
+    // Error logging would go here in production
   }, [error])
 
   return (
@@ -22,12 +22,12 @@ export default function Error({
         <AlertTriangleIcon size={48} className="text-red-500 mx-auto" />
       </div>
       <h2 className="text-2xl font-bold mb-4">Something went wrong!</h2>
-      <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md">
+      <p className="text-gray-600 mb-6 max-w-md">
         We encountered an error while loading this page. Please try again or
         contact support if the problem persists.
       </p>
       {error.digest && (
-        <p className="text-sm text-gray-500 dark:text-gray-500 mb-6">
+        <p className="text-sm text-gray-500 mb-6">
           Error ID: {error.digest}
         </p>
       )}

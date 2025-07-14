@@ -6,8 +6,7 @@ export async function GET() {
   try {
     const allIssues = await db.query.issues.findMany()
     return NextResponse.json(allIssues)
-  } catch{
-    // console.error('Error fetching issues:', error)
+  } catch {
     return NextResponse.json(
       { error: 'Failed to fetch issues' },
       { status: 500 }
@@ -43,8 +42,7 @@ export async function POST(request: Request) {
       { message: 'Issue created successfully', issue: newIssue[0] },
       { status: 201 }
     )
-  } catch{
-    // console.error('Error creating issue:', error)
+  } catch {
     return NextResponse.json(
       { error: 'Failed to create issue' },
       { status: 500 }

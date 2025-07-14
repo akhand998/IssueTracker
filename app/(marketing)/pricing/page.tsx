@@ -9,7 +9,7 @@ export default function PricingPage() {
         <h1 className="text-4xl font-bold mb-4 text-white">
           Simple, Transparent Pricing
         </h1>
-        <p className="text-xl text-gray-400 dark:text-gray-300">
+        <p className="text-xl text-gray-400">
           Choose the plan that&apos;s right for you and your team
         </p>
       </div>
@@ -77,7 +77,7 @@ export default function PricingPage() {
         <h2 className="text-2xl font-bold mb-4 text-white">
           Need a custom solution?
         </h2>
-        <p className="text-lg text-gray-400 dark:text-gray-300 mb-8">
+        <p className="text-lg text-gray-400 mb-8">
           Contact our sales team to discuss your specific requirements.
         </p>
         <a
@@ -136,10 +136,10 @@ function PricingCard({
       <div className="mb-4">
         <span className="text-3xl font-bold text-white">{price}</span>
         {price !== 'Custom' && (
-          <span className="text-gray-400 dark:text-gray-300"> {period}</span>
+          <span className="text-gray-400"> {period}</span>
         )}
       </div>
-      <p className="text-gray-400 dark:text-gray-300 mb-6">{description}</p>
+      <p className="text-gray-400 mb-6">{description}</p>
       <ul className="space-y-3 mb-6">
         {features.map((feature, index) => (
           <li key={index} className="flex items-start">
@@ -152,7 +152,7 @@ function PricingCard({
               className={
                 feature.included
                   ? 'text-white'
-                  : 'text-gray-500 dark:text-gray-600'
+                  : 'text-gray-500'
               }
             >
               {feature.name}

@@ -8,8 +8,12 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id: paramId } = await params
-    const id = Number(paramId)
+    const { id: idString } = await params
+    const id = parseInt(idString)
+
+    if (isNaN(id)) {
+      return NextResponse.json({ error: 'Invalid issue ID' }, { status: 400 })
+    }
 
     const issue = await db.query.issues.findFirst({
       where: eq(issues.id, id),
@@ -20,7 +24,7 @@ export async function GET(
     }
 
     return NextResponse.json(issue)
-  } catch{
+  } catch {
     return NextResponse.json(
       { error: 'Failed to fetch issue' },
       { status: 500 }

@@ -28,8 +28,8 @@ export const getCurrentUser = cache(async () => {
       .where(eq(users.id, session.userId))
 
     return result[0] || null
-  } catch{
-    return Error('Failed to fetch current user')
+  } catch {
+    return null
   }
 })
 
@@ -39,8 +39,7 @@ export const getUserByEmail = cache(async (email: string) => {
     const result = await db.select().from(users).where(eq(users.email, email))
     return result[0] || null
   } catch {
-    // console.error('Error getting user by email:', error)
-    return Error('Failed to fetch user by email')
+    return null
   }
 })
 
@@ -55,9 +54,8 @@ export async function getIssue(id: number) {
       },
     })
     return result
-  } catch (error) {
-    // console.error(`Error fetching issue ${id}:`, error)
-    throw new Error(`Failed to fetch issue ${id}: ${error}`)
+  } catch {
+    throw new Error('Failed to fetch issue')
   }
 }
 
@@ -73,8 +71,7 @@ export async function getIssues() {
       orderBy: (issues, { desc }) => [desc(issues.createdAt)],
     })
     return result
-  } catch (error) {
-    console.error('Error fetching issues:', error)
-    throw new Error(`Failed to fetch issues: ${error}`)
+  } catch {
+    throw new Error('Failed to fetch issues')
   }
 }

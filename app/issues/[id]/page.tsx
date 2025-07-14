@@ -8,6 +8,9 @@ import Button from '@/app/components/ui/Button'
 import { ArrowLeftIcon, Edit2Icon } from 'lucide-react'
 import DeleteIssueButton from '../../components/DeleteIssueButton'
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
 export default async function IssuePage({
   params,
 }: {

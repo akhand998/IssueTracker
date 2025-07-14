@@ -3,6 +3,10 @@ import IssueForm from '@/app/components/IssueForm'
 import { ArrowLeftIcon } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
 export default async function EditIssuePage({
   params,
 }: {
